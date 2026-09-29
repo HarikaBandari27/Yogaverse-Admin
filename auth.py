@@ -15,19 +15,13 @@ def check_password():
         -webkit-text-fill-color: #1f3d2f !important;
     }
 
-    section[data-testid="stSidebar"] {
-        min-width: 260px !important;
-        max-width: 260px !important;
-        transform: none !important;
-        visibility: visible !important;
-    }
-
-    button[data-testid="stSidebarCollapseButton"] {
-        display: none !important;
-    }
-
     [data-testid="stSidebarNav"] a,
     [data-testid="stSidebarNav"] span {
+        color: #ffffff !important;
+    }
+
+    [data-testid="stSidebarCollapseButton"] button,
+    [data-testid="stSidebarCollapseButton"] svg {
         color: #ffffff !important;
     }
     </style>
