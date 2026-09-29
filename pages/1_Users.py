@@ -1,6 +1,11 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(page_title="Users", layout="wide", initial_sidebar_state="expanded")
+
+from auth import check_password
+check_password()
+
 st.title("Users")
 
 col1, col2, col3, col4 = st.columns(4)

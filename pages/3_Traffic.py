@@ -1,6 +1,10 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(page_title="Traffic", layout="wide", initial_sidebar_state="expanded")
+
+from auth import check_password
+check_password()
 st.title("Traffic")
 
 st.info("Traffic reporting will connect to Google Analytics once site tracking has been added. Until then, the figures below are sample data.")

@@ -1,6 +1,10 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(page_title="Revenue", layout="wide", initial_sidebar_state="expanded")
+
+from auth import check_password
+check_password()
 st.title("Revenue")
 
 st.info("Payments are not live yet. These are planning estimates based on the sample member mix and placeholder pricing.")

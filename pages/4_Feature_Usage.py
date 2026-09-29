@@ -1,6 +1,11 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(page_title="Feature Usage", layout="wide", initial_sidebar_state="expanded")
+
+from auth import check_password
+check_password()
+
 st.title("Feature Usage")
 
 st.info("Feature reporting will connect to PostHog once product tracking has been added to the site. These engagement signals are placeholders for now.")

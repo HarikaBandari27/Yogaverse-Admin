@@ -1,20 +1,37 @@
 import streamlit as st
 
-st.markdown("""
-<style>
-input[type="password"],
-div[data-testid="stTextInput"] input {
-    background-color: white !important;
-    color: #1f3d2f !important;
-    caret-color: #1f3d2f !important;
-    -webkit-text-fill-color: #1f3d2f !important;
-}
-</style>
-""", unsafe_allow_html=True)
-
 
 def check_password():
     """I check whether the visitor has entered the correct password."""
+
+    # I load my custom CSS here so it applies on every page
+    st.markdown("""
+    <style>
+    input[type="password"],
+    div[data-testid="stTextInput"] input {
+        background-color: white !important;
+        color: #1f3d2f !important;
+        caret-color: #1f3d2f !important;
+        -webkit-text-fill-color: #1f3d2f !important;
+    }
+
+    section[data-testid="stSidebar"] {
+        min-width: 260px !important;
+        max-width: 260px !important;
+        transform: none !important;
+        visibility: visible !important;
+    }
+
+    button[data-testid="stSidebarCollapseButton"] {
+        display: none !important;
+    }
+
+    [data-testid="stSidebarNav"] a,
+    [data-testid="stSidebarNav"] span {
+        color: #ffffff !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
     def password_entered():
         if st.session_state["password_input"] == st.secrets["app_password"]:
