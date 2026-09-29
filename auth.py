@@ -2,9 +2,14 @@ import streamlit as st
 
 st.markdown("""
 <style>
-input { color: white !important; }
+input[type="password"] {
+    background-color: white !important;
+    color: #1f3d2f !important;
+    caret-color: #1f3d2f !important;
+}
 </style>
 """, unsafe_allow_html=True)
+
 
 def check_password():
     """I check whether the visitor has entered the correct password."""
