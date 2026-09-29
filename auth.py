@@ -2,10 +2,12 @@ import streamlit as st
 
 st.markdown("""
 <style>
-input[type="password"] {
+input[type="password"],
+div[data-testid="stTextInput"] input {
     background-color: white !important;
     color: #1f3d2f !important;
     caret-color: #1f3d2f !important;
+    -webkit-text-fill-color: #1f3d2f !important;
 }
 </style>
 """, unsafe_allow_html=True)
