@@ -1,6 +1,3 @@
-from auth import check_password
-check_password()
-
 import streamlit as st
 import pandas as pd
 
