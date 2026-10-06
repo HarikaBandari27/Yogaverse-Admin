@@ -11,8 +11,9 @@ revenue = st.Page("views/revenue.py", title="Plans & Revenue")
 traffic = st.Page("views/traffic.py", title="Traffic")
 feature_usage = st.Page("views/feature_usage.py", title="Feature Usage")
 
+
 pg = st.navigation({
-    "Live Data": [overview, users, teachers],
+    "Core Structure": [overview, users, teachers],
     "Not Tracked Yet": [revenue, traffic, feature_usage],
 })
 
