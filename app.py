@@ -1,23 +1,19 @@
 import streamlit as st
-import pandas as pd
+from auth import check_password
 
-st.title("Yogaverse Admin Console")
+st.set_page_config(page_title="Yogaverse Admin Console", layout="wide", initial_sidebar_state="expanded")
+check_password()
 
-col1, col2, col3, col4 = st.columns(4)
+overview = st.Page("views/overview.py", title="Dashboard", default=True)
+users = st.Page("views/users.py", title="Users")
+teachers = st.Page("views/teachers.py", title="Teachers")
+revenue = st.Page("views/revenue.py", title="Plans & Revenue")
+traffic = st.Page("views/traffic.py", title="Traffic")
+feature_usage = st.Page("views/feature_usage.py", title="Feature Usage")
 
-col1.metric("Total Users", "12,842")
-col2.metric("New Signups This Week", "486")
-col3.metric("Active Users", "8,259")
-col4.metric("Pending Teacher Applications", "18")
+pg = st.navigation({
+    "Live Data": [overview, users, teachers],
+    "Not Tracked Yet": [revenue, traffic, feature_usage],
+})
 
-st.subheader("Recent Users")
-
-users_data = {
-    "Name": ["Maya Patel", "Olivia Chen", "Sofia Martinez", "Amara Williams"],
-    "Email": ["maya.patel@example.com", "olivia.chen@example.com", "sofia.martinez@example.com", "amara.williams@example.com"],
-    "Signup Date": ["2024-05-12", "2024-05-11", "2024-05-09", "2024-05-08"],
-    "Status": ["Active", "Active", "Inactive", "Active"]
-}
-
-users_df = pd.DataFrame(users_data)
-st.dataframe(users_df)
+pg.run()

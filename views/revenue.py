@@ -5,6 +5,7 @@ st.set_page_config(page_title="Revenue", layout="wide", initial_sidebar_state="e
 
 from auth import check_password
 check_password()
+
 st.title("Revenue")
 
 st.info("Payments are not live yet. These are planning estimates based on the sample member mix and placeholder pricing.")
@@ -26,4 +27,29 @@ plans_data = {
 }
 
 plans_df = pd.DataFrame(plans_data)
-st.dataframe(plans_df)
+
+table_html = plans_df.to_html(index=False, classes="scroll-table")
+
+st.markdown(f"""
+<div style="max-height: 350px; overflow-y: auto; border: 1px solid #e4e1da; border-radius: 6px;">
+{table_html}
+</div>
+<style>
+.scroll-table {{
+    width: 100%;
+    border-collapse: collapse;
+}}
+.scroll-table th {{
+    position: sticky;
+    top: 0;
+    background-color: #1a2744;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}}
+.scroll-table td {{
+    padding: 10px;
+    border-bottom: 1px solid #e4e1da;
+}}
+</style>
+""", unsafe_allow_html=True)
